@@ -1,7 +1,10 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Card from './Card'
 
 function Foreground() {
+
+    const ref = useRef(null);
+
     const data = [
         {
             desc: "Hello, How's it going on there buddy?!",
@@ -35,9 +38,9 @@ function Foreground() {
         }
     ];
   return (
-    <div className='fixed top-0 left-0 z-[3] w-full h-full flex gap-8 flex-wrap p-5'>
+    <div ref={ref} className='fixed top-0 left-0 z-[3] w-full h-full flex gap-8 flex-wrap p-5'>
         {data.map((item, index) => (
-            <Card data={item} />
+            <Card data={item} reference={ref} />
         ))}
     </div>
 
